@@ -16,10 +16,6 @@ public class SpringDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
 
-//		MyController myController = (MyController) ctx.getBean("myController");
-//		String greeting = myController.sayHello();
-//		System.out.println(greeting);
-
 		System.out.println("====Property DI====");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
@@ -31,6 +27,10 @@ public class SpringDiApplication {
 		System.out.println("====Constructor DI====");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		System.out.println("======Primary Bean=======");
+		MyController myController = (MyController) ctx.getBean("myController");
+		System.out.println(myController.getGreeting());
 	}
 
 }
