@@ -1,9 +1,6 @@
 package com.example.springdi;
 
-import com.example.springdi.controllers.ConstructorInjectedController;
-import com.example.springdi.controllers.MyController;
-import com.example.springdi.controllers.PropertyInjectedController;
-import com.example.springdi.controllers.SetterInjectedController;
+import com.example.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +12,9 @@ public class SpringDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("====Property DI====");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
